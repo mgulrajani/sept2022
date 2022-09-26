@@ -11,7 +11,9 @@ import java.util.List;
 //RESTFul Apis whihc will be consumed by UI /React app /Angular app /jsp /php
 
 //entity which you are goingto persist in Product table in db -- rdbms 
+
 class Product implements Serializable{
+	
  private long id;
  private String name;
  private String brand;
@@ -40,7 +42,8 @@ public interface ProductDAO {
 }
 
 class ProductDAOImplInJDBC implements ProductDAO{
-
+// this will use jdbc - api to perform product crud
+	
 	@Override
 	public Product addProduct(Product p) {
 		// TODO Auto-generated method stub
@@ -79,6 +82,9 @@ class ProductDAOImplInJDBC implements ProductDAO{
 
 class ProductDAOImplInFiles implements ProductDAO{
 
+	
+	//so you will create some ObjectOutputStream and FileOutputStream and write objects to file and read using ObjectInputStream from the file ,FIleInputStream will be used to read
+	
 	@Override
 	public Product addProduct(Product p) {
 		// TODO Auto-generated method stub
@@ -143,6 +149,22 @@ interface ProductService{
 class ProductServiceImpl implements ProductService{
 	
 	//service will use the dao 
+	
+	//here in this case we are tying with jdbc impl
+	/*
+	 * 
+	 * 
+	 * if you want files dao then , it will be 
+	 * ProductDAO dao =new ProductDAOImplInFiles();
+	 * only impl will change
+	 * rest all service method calls from the client will remain the same.
+	 * 
+	 */
+	
+	//Mockito 
+	//Mocking the DAO layer --we will not hit the actual db  --
+	//mock it by static ,train our mock ,if i say addproduct , deletepro,list we have to train dao layer's mock object
+	
 	private ProductDAO dao=new ProductDAOImplInJDBC();
 
 	
