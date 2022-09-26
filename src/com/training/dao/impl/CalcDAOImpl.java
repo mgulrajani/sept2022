@@ -5,9 +5,15 @@ import com.training.dao.CalcDAO;
 public class CalcDAOImpl implements CalcDAO{
 
 	@Override
-	public int add(int a, int b) {
+	public int add(int a, int b) throws IllegalArgumentException{
 		// TODO Auto-generated method stub
-		return 0;
+		int result = a+b;
+		System.out.println(result);
+		if(result > 100)
+		throw new IllegalArgumentException();
+		else
+			return result;
+		
 	}
 
 	@Override
