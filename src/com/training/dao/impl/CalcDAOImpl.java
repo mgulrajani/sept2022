@@ -22,4 +22,10 @@ public class CalcDAOImpl implements CalcDAO{
 	return (a>b)?a-b:b-a;
 	}
 
+	@Override
+	public int square(int a) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 }

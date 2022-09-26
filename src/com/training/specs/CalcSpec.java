@@ -3,10 +3,10 @@ package com.training.specs;
 
 
 import static org.junit.jupiter.api.Assertions.assertAll;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
-
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
@@ -15,6 +15,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 import com.training.dao.impl.CalcDAOImpl;
 
@@ -154,6 +156,16 @@ class CalcSpec {
 		
 	}
 	
+
+@ParameterizedTest
+@ValueSource(ints = { 1, 2, 3, 4, 5 })
+public void findById(int a) {
+
+	assertNotNull(daoImpl);
+	int result =  daoImpl.square(a);
+	
+	assertEquals(a*a, daoImpl.square(a));
+                }
 	
 	
 }

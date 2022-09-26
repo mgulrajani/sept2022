@@ -112,6 +112,8 @@ class ProductDAOImplInFiles implements ProductDAO{
 	
 	
 }
+
+
 //service layer
 interface ProductService{
 	
@@ -131,10 +133,24 @@ interface ProductService{
 
 //always code to abstraction not to the implementation
 
+//i have to test the service layer 
+//service layer is talking to dao layers
+//there are two layers
+//service layer and dao layer 
+//we are doing unit testing  . only 1 layer is to be tested in isolation
+
+
 class ProductServiceImpl implements ProductService{
 	
 	//service will use the dao 
-	private ProductDAO dao;
+	private ProductDAO dao=new ProductDAOImplInJDBC();
+
+	
+	
+	public ProductServiceImpl(ProductDAO dao) {
+		super();
+		this.dao = dao;
+	}
 
 	@Override
 	public Product addProduct(Product p) {
@@ -174,7 +190,18 @@ class ProductServiceImpl implements ProductService{
 	
 }
 
-
+class ClientApp{
+	
+	
+	//dao layer
+	//client should talk to service
+	
+	public static void main(String[] args) {
+		
+		
+		
+	}
+}
 
 
 
