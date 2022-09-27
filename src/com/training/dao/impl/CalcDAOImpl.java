@@ -25,7 +25,7 @@ public class CalcDAOImpl implements CalcDAO{
 	@Override
 	public int square(int a) {
 		// TODO Auto-generated method stub
-		return 0;
+		return a*a;
 	}
 
 }
