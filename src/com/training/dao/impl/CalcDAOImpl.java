@@ -25,6 +25,7 @@ public class CalcDAOImpl implements CalcDAO{
 	@Override
 	public int square(int a) {
 		// TODO Auto-generated method stub
+		System.out.println("a new statement");
 		return a*a;
 	}
 
