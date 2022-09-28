@@ -6,6 +6,7 @@ public class CalcDAOImpl implements CalcDAO{
 
 	@Override
 	public int add(int a, int b) throws IllegalArgumentException{
+		System.out.println("adding two numbers and throwing exception");
 		// TODO Auto-generated method stub
 		int result = a+b;
 		System.out.println(result);
